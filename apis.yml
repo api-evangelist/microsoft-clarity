@@ -1,0 +1,36 @@
+aid: microsoft-clarity
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml
+apis:
+  - aid: microsoft-clarity:analytics-api
+    name: Microsoft Clarity API
+    tags:
+      - Analytics
+      - Heatmaps
+      - Session Recording
+      - Web Analytics
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://www.clarity.ms/
+    humanURL: https://learn.microsoft.com/en-us/clarity/
+    properties:
+      - url: https://learn.microsoft.com/en-us/clarity/
+        type: Documentation
+    description: >-
+      Microsoft Clarity is a free web analytics tool that provides heatmaps,
+      session recordings, and behavioral insights. The Clarity API enables
+      developers to access analytics data programmatically, configure
+      projects, retrieve heatmap data, and integrate behavioral analytics
+      into custom dashboards and reporting tools.
+common:
+  - type: Portal
+    url: https://clarity.microsoft.com/
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Support
+    url: https://support.microsoft.com/
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
