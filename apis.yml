@@ -31,6 +31,10 @@ apis:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/clarity/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/microsoft
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/microsoft-clarity
   - type: Portal
     url: https://clarity.microsoft.com/
   - type: GettingStarted
