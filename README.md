@@ -1,11 +1,15 @@
 # Microsoft Clarity (microsoft-clarity)
+
 Microsoft Clarity is a free web analytics tool providing heatmaps, session recordings, and behavioral insights through an API for custom integrations.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml)
 
-## Tags:
+## Tags
 
- - Analytics, Heatmaps, Session Recording, Web Analytics
+- Analytics
+- Heatmaps
+- Session Recording
+- Web Analytics
 
 ## Timestamps
 
@@ -15,20 +19,29 @@ Microsoft Clarity is a free web analytics tool providing heatmaps, session recor
 ## APIs
 
 ### Microsoft Clarity API
+
 Microsoft Clarity provides heatmaps, session recordings, and behavioral analytics with API access for custom integrations.
 
-**Human URL:** [https://learn.microsoft.com/en-us/clarity/](https://learn.microsoft.com/en-us/clarity/)
+- **Human URL:** [https://learn.microsoft.com/en-us/clarity/](https://learn.microsoft.com/en-us/clarity/)
+- **Base URL:** `https://www.clarity.ms/`
 
-#### Tags:
+#### Tags
 
- - Analytics, Heatmaps, Session Recording, Web Analytics
+- Analytics
+- Heatmaps
+- Session Recording
+- Web Analytics
 
 #### Properties
 
 - [Documentation](https://learn.microsoft.com/en-us/clarity/)
+- [Postman Collection](collections/microsoft-clarity.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/microsoft-clarity.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
+- [GitHub Organization](https://github.com/microsoft)
+- [LinkedIn](https://www.linkedin.com/company/microsoft-clarity)
 - [Portal](https://clarity.microsoft.com/)
 - [Getting Started](https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup)
 - [Terms of Service](https://www.microsoft.com/en-us/legal/terms-of-use)
@@ -38,5 +51,4 @@ Microsoft Clarity provides heatmaps, session recordings, and behavioral analytic
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com

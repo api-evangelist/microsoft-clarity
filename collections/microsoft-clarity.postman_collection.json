@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "164986c5-f271-4342-8ffd-52673af17f86",
+      "name": "DataExport",
+      "description": {
+        "content": "Project live insights data export",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3dd1500f-dbbe-4735-86df-fe60a59cce6b",
+          "name": "Fetch project live insights",
+          "request": {
+            "name": "Fetch project live insights",
+            "description": {
+              "content": "Fetches dashboard data for a Clarity project over the last 1, 2,\nor 3 days, broken down by up to three dimensions. Returns\nmetrics including Traffic, Engagement Time, Scroll Depth,\nPopular Pages, Browser, Device, OS, Country/Region, Page Title,\nReferrer URL, Dead Click Count, Excessive Scroll, Rage Click\nCount, Quickback Click, Script Error Count, and Error Click\nCount.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "export-data",
+                "api",
+                "v1",
+                "project-live-insights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "numOfDays",
+                  "value": "<integer>",
+                  "description": "(Required) Number of days for export (1, 2, or 3)"
+                },
+                {
+                  "disabled": false,
+                  "key": "dimension1",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dimension2",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dimension3",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15d027fc-d2c4-4fe3-86ab-a23548d707e5",
+              "name": "Insights data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-data",
+                    "api",
+                    "v1",
+                    "project-live-insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numOfDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dimension1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"metricName\": \"Traffic\",\n    \"information\": [\n      {\n        \"key_0\": true,\n        \"key_1\": true\n      },\n      {\n        \"key_0\": \"string\",\n        \"key_1\": 2998,\n        \"key_2\": \"string\"\n      }\n    ]\n  },\n  {\n    \"metricName\": \"Traffic\",\n    \"information\": [\n      {\n        \"key_0\": \"string\"\n      },\n      {\n        \"key_0\": 6378,\n        \"key_1\": false\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "282283fd-9e76-44fc-a368-b170256aacef",
+              "name": "Bad request - invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-data",
+                    "api",
+                    "v1",
+                    "project-live-insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numOfDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dimension1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4bf7728c-e10a-4bc1-8cfe-9dc3c726d9e5",
+              "name": "Unauthorized - missing, invalid, or expired token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-data",
+                    "api",
+                    "v1",
+                    "project-live-insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numOfDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dimension1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1cf8d3c7-ec0f-4559-a4d0-e69f9ece8167",
+              "name": "Forbidden - token not authorized for operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-data",
+                    "api",
+                    "v1",
+                    "project-live-insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numOfDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dimension1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ea00567-9464-4d0f-851f-8015d26046b6",
+              "name": "Too Many Requests - exceeded daily limit (10/project/day)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "export-data",
+                    "api",
+                    "v1",
+                    "project-live-insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numOfDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "dimension1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dimension3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.clarity.ms",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5e6357bd-91cb-4403-a2c9-9c4117852947",
+    "name": "Microsoft Clarity Data Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Clarity Data Export API lets project admins download\ndashboard insights programmatically. Returns JSON for the last 1-3\ndays, broken down by up to three dimensions (Browser, Device,\nCountry/Region, OS, Source, Medium, Campaign, Channel, URL).\nAuthentication is via a Bearer JWT API token generated in the\nClarity project settings. Max 10 requests per project per day;\nresponses limited to 1000 rows and not paginated.\n\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}
