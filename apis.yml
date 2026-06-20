@@ -4,7 +4,7 @@ name: Microsoft Clarity
 description: >-
   Microsoft Clarity is a free web analytics tool providing heatmaps, session
   recordings, and behavioral insights through an API for custom integrations.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Analytics
   - Heatmaps
@@ -19,7 +19,7 @@ apis:
     description: >-
       Microsoft Clarity provides heatmaps, session recordings, and behavioral
       analytics with API access for custom integrations.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/clarity/
     baseURL: https://www.clarity.ms/
     tags:
