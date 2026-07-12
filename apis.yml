@@ -31,6 +31,12 @@ apis:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/clarity/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/microsoft-clarity-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/microsoft-clarity-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-clarity-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/microsoft
   - type: LinkedIn
@@ -45,6 +51,8 @@ common:
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Support
     url: https://support.microsoft.com/
+  - url: https://clarity.microsoft.com/blog/feed
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
