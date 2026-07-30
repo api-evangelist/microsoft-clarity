@@ -4,7 +4,20 @@ name: Microsoft Clarity
 description: >-
   Microsoft Clarity is a free web analytics tool providing heatmaps, session
   recordings, and behavioral insights through an API for custom integrations.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-clarity.png
 tags:
   - Analytics
   - Heatmaps
@@ -14,22 +27,32 @@ created: '2026-03-13'
 modified: '2026-04-28'
 specificationVersion: '0.20'
 apis:
-  - aid: microsoft-clarity:api
-    name: Microsoft Clarity API
-    description: >-
-      Microsoft Clarity provides heatmaps, session recordings, and behavioral
-      analytics with API access for custom integrations.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://learn.microsoft.com/en-us/clarity/
-    baseURL: https://www.clarity.ms/
-    tags:
-      - Analytics
-      - Heatmaps
-      - Session Recording
-      - Web Analytics
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/clarity/
+- aid: microsoft-clarity:api
+  name: Microsoft Clarity API
+  description: >-
+    Microsoft Clarity provides heatmaps, session recordings, and behavioral analytics with API access
+    for custom integrations.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://learn.microsoft.com/en-us/clarity/
+  baseURL: https://www.clarity.ms/
+  tags:
+  - Analytics
+  - Heatmaps
+  - Session Recording
+  - Web Analytics
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/clarity/
+- aid: microsoft-clarity:microsoft-clarity-dataexport-api
+  name: Microsoft Clarity DataExport API
+  description: Project live insights data export
+  humanURL: https://learn.microsoft.com/en-us/clarity/
+  baseURL: https://www.clarity.ms/
+  tags:
+  - DataExport
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-clarity-dataexport-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-clarity-agentic-access.yml
