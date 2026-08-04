@@ -1,0 +1,14 @@
+{
+  "provider": "microsoft-clarity",
+  "sources": [
+    "microsoft-clarity-dataexport-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-clarity-dataexport-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
