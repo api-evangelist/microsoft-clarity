@@ -2,29 +2,43 @@ aid: microsoft-clarity
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml
 name: Microsoft Clarity
 description: >-
-  Microsoft Clarity is a free web analytics tool providing heatmaps, session
-  recordings, and behavioral insights through an API for custom integrations.
+  Microsoft Clarity is a free behavioral analytics service from Microsoft that
+  captures heatmaps, session recordings and frustration signals — rage clicks,
+  dead clicks, excessive scroll, quickback clicks and script errors — for
+  websites and mobile apps. Instrumentation is a client-side tracking tag or a
+  first-party SDK for Android, iOS, Flutter, React Native and Cordova. Data
+  comes back out through the Data Export API, a single JWT-authenticated GET
+  that returns dashboard metrics for the last one to three days broken down by
+  up to three dimensions, and through a first-party Model Context Protocol
+  server that wraps the same endpoint for AI agents. Clarity is free forever
+  with no paid tier; the binding constraint on any integration is a quota of ten
+  API requests per project per day.
 accessModel:
-  pricing: freemium
+  pricing: free
   onboarding: self-serve
   trial: false
   try_now: true
   public: false
-  label: Freemium · Self-serve signup
+  label: Free · Self-serve signup
   confidence: high
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
-  method: derived
+  generated: '2026-08-13'
+  method: searched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-clarity.png
 tags:
   - Analytics
   - Heatmaps
   - Session Recording
   - Web Analytics
+  - Behavioral Analytics
+  - Product Analytics
+  - User Experience
+  - Data Export
+  - MCP
 created: '2026-03-13'
-modified: '2026-04-28'
+modified: '2026-08-13'
 specificationVersion: '0.20'
 apis:
 - aid: microsoft-clarity:api
@@ -43,33 +57,93 @@ apis:
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/clarity/
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
 - aid: microsoft-clarity:microsoft-clarity-dataexport-api
   name: Microsoft Clarity DataExport API
-  description: Project live insights data export
-  humanURL: https://learn.microsoft.com/en-us/clarity/
+  description: >-
+    Project live insights data export. One JWT-authenticated GET returns Clarity
+    dashboard metrics as JSON for the last one to three days, sliced by up to
+    three of nine dimensions. Capped at ten requests per project per day and
+    1,000 unpaginated rows per response.
+  humanURL: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
   baseURL: https://www.clarity.ms/
   tags:
   - DataExport
   properties:
   - type: OpenAPI
     url: openapi/microsoft-clarity-dataexport-api-openapi.yml
+  - type: Overlay
+    url: overlays/microsoft-clarity-dataexport-api-overlay.yaml
+  - type: ErrorCatalog
+    url: errors/microsoft-clarity-problem-types.yml
+  - type: DataModel
+    url: data-model/microsoft-clarity-data-model.yml
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-clarity-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/microsoft-clarity-vulnerability-disclosure.yml
+  - type: Security
+    url: security/microsoft-clarity-vulnerability-disclosure.yml
   - type: DomainSecurity
     url: security/microsoft-clarity-domain-security.yml
   - type: Authentication
     url: authentication/microsoft-clarity-authentication.yml
+  - type: Packages
+    url: packages/microsoft-clarity-packages.yml
+  - type: SDKs
+    url: packages/microsoft-clarity-packages.yml
+  - type: WellKnown
+    url: well-known/microsoft-clarity-well-known.yml
+  - type: SecurityTxt
+    url: well-known/microsoft-clarity-security.txt
+  - type: MCPServer
+    url: mcp/microsoft-clarity-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/microsoft-clarity-tool-crosswalk.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: llms/microsoft-clarity-llms.txt
+  - type: Conformance
+    url: conformance/microsoft-clarity-conformance.yml
+  - type: Compliance
+    url: conformance/microsoft-clarity-conformance.yml
+  - type: Conventions
+    url: conventions/microsoft-clarity-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/microsoft-clarity-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/microsoft-clarity-changelog.yml
+  - type: Components
+    url: components/microsoft-clarity-components.yml
+  - type: Plans
+    url: plans/microsoft-clarity-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/microsoft-clarity-rate-limits.yml
   - type: GitHubOrganization
     url: https://github.com/microsoft
   - type: LinkedIn
     url: https://www.linkedin.com/company/microsoft-clarity
   - type: Portal
     url: https://clarity.microsoft.com/
+  - type: DeveloperPortal
+    url: https://learn.microsoft.com/en-us/clarity/
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/clarity/
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup
+  - type: Pricing
+    url: https://clarity.microsoft.com/pricing
+  - type: SignUp
+    url: https://clarity.microsoft.com/
+  - type: FAQ
+    url: https://learn.microsoft.com/en-us/clarity/faq
   - type: TermsOfService
     url: https://www.microsoft.com/en-us/legal/terms-of-use
   - type: PrivacyPolicy
@@ -81,3 +155,10 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1
+x-coverage:
+  state: covered
