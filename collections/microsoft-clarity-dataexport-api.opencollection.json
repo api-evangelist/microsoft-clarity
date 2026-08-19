@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Clarity Data Export DataExport API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DataExport",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch project live insights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.clarity.ms/export-data/api/v1/project-live-insights",
+            "params": [
+              {
+                "name": "numOfDays",
+                "value": "",
+                "type": "query",
+                "description": "Number of days for export (1, 2, or 3)"
+              },
+              {
+                "name": "dimension1",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimension2",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dimension3",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches dashboard data for a Clarity project over the last 1, 2,\nor 3 days, broken down by up to three dimensions. Returns\nmetrics including Traffic, Engagement Time, Scroll Depth,\nPopular Pages, Browser, Device, OS, Country/Region, Page Title,\nReferrer URL, Dead Click Count, Excessive Scroll, Rage Click\nCount, Quickback Click, Script Error Count, and Error Click\nCount.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,113 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api,
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup,
+  https://learn.microsoft.com/en-us/clarity/mobile-sdk/
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Clarity's real integration surface is client-side, not server-side. Most
+  customers never touch the Data Export API — they paste a tracking tag and then
+  drive Clarity through an in-page command API and a pair of HTML attributes.
+  These are embeddable client components, distinct from the SDK packages listed
+  in packages/microsoft-clarity-packages.yml.
+families:
+  - name: Tracking tag
+    kind: script-loader
+    description: >-
+      The copy-and-paste install snippet. Loads the Clarity capture bundle from
+      the project-scoped tag endpoint; the Clarity project ID is the only
+      credential, and it doubles as the client API key.
+    loader_url: https://www.clarity.ms/tag/<PROJECT_ID>
+    versioned: false
+    probe:
+      url: https://www.clarity.ms/tag/<PROJECT_ID>
+      status: 204
+      fetched: '2026-08-13'
+      note: >-
+        Probed with a non-existent project id; the host answers 204 rather than
+        404, so project validity is resolved server-side and is not observable
+        anonymously.
+    alternatives:
+      - Google Tag Manager template
+      - Third-party CMS/platform installers (Shopify, WordPress, Wix, Drupal)
+      - npm package @microsoft/clarity for bundled apps
+    docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-setup
+  - name: Clarity client API
+    kind: javascript-command-api
+    description: >-
+      A single global command function. Every capability is a verb passed as the
+      first argument to window.clarity(). No separate API key is required — the
+      Clarity ID serves as the API key, and Microsoft states there is no cost
+      for using the client APIs.
+    global: window.clarity
+    methods:
+      - verb: consent
+        syntax: window.clarity('consent')
+        params: String
+        required: true
+        purpose: >-
+          Convey end-user cookie/tracking consent. Enforced for traffic from the
+          EEA, UK and Switzerland — without it Clarity limits collection in
+          those regions.
+        docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-consent-api-v1
+      - verb: identify
+        syntax: window.clarity("identify", "custom-id", "custom-session-id", "custom-page-id", "friendly-name")
+        params: Strings
+        required: 'custom-id required; the remaining three optional'
+        purpose: Attach custom user, session and page identifiers to a Clarity session.
+        docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/identify-api
+      - verb: set
+        syntax: window.clarity("set", <key>, <value>)
+        params: 'key: string; value: string or array of strings'
+        required: true
+        purpose: >-
+          Apply arbitrary custom tags to the session; they become filter options
+          in the dashboard. Callable repeatedly, with no limit on tag count —
+          though a single page may carry at most 128 tags.
+      - verb: event
+        syntax: window.clarity("event", <value>)
+        params: 'value: string event name'
+        required: true
+        purpose: >-
+          Manually instrument a user action; it appears alongside no-code Smart
+          Events in Filters, Dashboard, Settings and Recordings.
+      - verb: upgrade
+        syntax: window.clarity("upgrade", <upgrade reason>)
+        params: Strings
+        required: true
+        purpose: >-
+          Prioritise a session for retention when the project exceeds the
+          100,000-recordings-per-day cap and Clarity begins sampling.
+    docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
+  - name: HTML masking attributes
+    kind: html-attributes
+    description: >-
+      Declarative privacy controls applied directly to markup. Input content,
+      numbers and email addresses are masked by default; these attributes
+      override element by element. Setting either attribute to "false" has no
+      effect — you must use the opposite attribute.
+    attributes:
+      - name: data-clarity-mask
+        value: 'true'
+        purpose: Mask this element and its subtree; masked content is never uploaded.
+      - name: data-clarity-unmask
+        value: 'true'
+        purpose: Force this element's content to be sent to Clarity.
+    docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
+  - name: Mobile capture components
+    kind: native-sdk-surface
+    description: >-
+      The mobile SDKs expose the equivalent capability as native APIs rather
+      than a command string — setCustomTag, setCustomUserId, setCustomSessionId,
+      setCurrentScreenName, sendCustomEvent, getCurrentSessionUrl,
+      setOnSessionStartedCallback, startNewSession, pause / resume / isPaused,
+      consent, and maskView / unmaskView. Flutter wraps the app in a Clarity
+      widget.
+    platforms: [Android, iOS, Flutter, React Native, Cordova/Ionic]
+    packages_ref: packages/microsoft-clarity-packages.yml
+    docs: https://learn.microsoft.com/en-us/clarity/mobile-sdk/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

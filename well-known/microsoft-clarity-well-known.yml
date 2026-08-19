@@ -1,0 +1,115 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of every Microsoft Clarity host on 2026-08-13
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  /.well-known/ probe across the Clarity API host (www.clarity.ms), the product
+  console/marketing host (clarity.microsoft.com), the documentation host
+  (learn.microsoft.com) and the operating company's root domain
+  (www.microsoft.com). Clarity's own hosts serve no /.well-known/ documents.
+  The only real hit in the set is Microsoft's corporate security.txt, served
+  from www.microsoft.com — that document covers MSRC for all Microsoft
+  products including Clarity, and it is the same document already recorded in
+  security/microsoft-clarity-vulnerability-disclosure.yml.
+important_caveat: >-
+  clarity.microsoft.com answers HTTP 200 with the same SPA HTML shell for EVERY
+  path, including every /.well-known/* path and every OpenAPI filename. Those
+  200s are NOT documents and are recorded below as misses (spa_shell: true).
+  Only www.microsoft.com/.well-known/security.txt returned a real document.
+hits: 1
+probes:
+  - host: www.clarity.ms
+    path: /.well-known/security.txt
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/openid-configuration
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/oauth-authorization-server
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/api-catalog
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/ai-plugin.json
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: www.clarity.ms
+    path: /.well-known/agent.json
+    status: 404
+  - host: clarity.microsoft.com
+    path: /.well-known/security.txt
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell, not a security.txt. Treated as a miss.
+  - host: clarity.microsoft.com
+    path: /.well-known/openid-configuration
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell. Treated as a miss.
+  - host: clarity.microsoft.com
+    path: /.well-known/oauth-authorization-server
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell. Treated as a miss.
+  - host: clarity.microsoft.com
+    path: /.well-known/api-catalog
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell. Treated as a miss.
+  - host: clarity.microsoft.com
+    path: /.well-known/ai-plugin.json
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell. Treated as a miss.
+  - host: clarity.microsoft.com
+    path: /.well-known/agent-card.json
+    status: 200
+    spa_shell: true
+    note: >-
+      HTML SPA shell, not an AgentCard. No a2a/ artifact was written and no
+      AgentCard pointer was emitted.
+  - host: clarity.microsoft.com
+    path: /.well-known/agent.json
+    status: 200
+    spa_shell: true
+    note: HTML SPA shell, not an AgentCard. Treated as a miss.
+  - host: learn.microsoft.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: learn.microsoft.com
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain; charset=utf-8
+    file: well-known/microsoft-clarity-security.txt
+    note: >-
+      Real RFC 9116 security.txt for Microsoft Corporation. Expires
+      2026-09-23. Carries Contact, Policy (bounty, CVD, safe harbor),
+      Acknowledgments, Encryption, Canonical and CSAF fields.
+  - host: www.microsoft.com
+    path: /.well-known/openid-configuration
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/api-catalog
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: www.microsoft.com
+    path: /.well-known/agent.json
+    status: 404
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

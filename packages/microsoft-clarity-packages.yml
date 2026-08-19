@@ -1,0 +1,158 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/ plus registry metadata read from
+  registry.npmjs.org, repo1.maven.org, pub.dev and the microsoft/clarity-apps
+  GitHub releases API on 2026-08-13.
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  First-party Microsoft Clarity client libraries and the first-party MCP server.
+  Clarity's distribution is split three ways: the open-source instrumentation
+  libraries published from github.com/microsoft/clarity (clarity-js /
+  clarity-decode / clarity-visualize), the packaged product SDKs published under
+  the @microsoft scope and com.microsoft.clarity Maven group, and the
+  copy-and-paste tracking tag served from www.clarity.ms. Versions and publish
+  dates were read from each registry's metadata endpoint on 2026-08-13.
+package_count: 11
+official_count: 11
+packages:
+  - name: '@microsoft/clarity'
+    registry: npm
+    url: https://www.npmjs.com/package/@microsoft/clarity
+    language: JavaScript/TypeScript
+    official: true
+    version: 1.0.2
+    published: '2025-11-27'
+    license: MIT
+    note: >-
+      npm wrapper for the Clarity web tracking library, used instead of the
+      inline tag in bundled apps. Published by microsoft1es.
+  - name: '@microsoft/clarity-mcp-server'
+    registry: npm
+    url: https://www.npmjs.com/package/@microsoft/clarity-mcp-server
+    language: TypeScript
+    official: true
+    version: 2.0.1
+    published: '2025-10-28'
+    license: MIT
+    repository: https://github.com/microsoft/clarity-mcp-server
+    note: >-
+      First-party MCP server wrapping the Clarity Data Export API. Runs as a
+      local stdio process (npx / global install) — there is no hosted endpoint.
+      See mcp/microsoft-clarity-mcp.yml.
+  - name: '@microsoft/react-native-clarity'
+    registry: npm
+    url: https://www.npmjs.com/package/@microsoft/react-native-clarity
+    language: JavaScript/TypeScript
+    official: true
+    version: 4.7.0
+    published: '2026-08-12'
+    repository: https://github.com/microsoft/clarity-apps
+    note: >-
+      React Native SDK. Renamed from react-native-clarity at 4.0.1; the
+      unscoped name is still published in lockstep by the same publisher.
+  - name: '@microsoft/cordova-clarity'
+    registry: npm
+    url: https://www.npmjs.com/package/@microsoft/cordova-clarity
+    language: JavaScript
+    official: true
+    version: 3.0.0
+    published: '2025-05-22'
+    note: >-
+      Cordova/Ionic SDK. Last published 2025-05-22 — the oldest first-party
+      Clarity SDK release, and the changelog shows no entry after 3.0.0.
+  - name: clarity-js
+    registry: npm
+    url: https://www.npmjs.com/package/clarity-js
+    language: TypeScript
+    official: true
+    version: 0.8.68
+    published: '2026-07-19'
+    license: MIT
+    repository: https://github.com/microsoft/clarity
+    note: Open-source capture library published from the microsoft/clarity monorepo.
+  - name: clarity-decode
+    registry: npm
+    url: https://www.npmjs.com/package/clarity-decode
+    language: TypeScript
+    official: true
+    version: 0.8.68
+    published: '2026-07-19'
+    license: MIT
+    repository: https://github.com/microsoft/clarity
+    note: Decodes the wire payload emitted by clarity-js.
+  - name: clarity-visualize
+    registry: npm
+    url: https://www.npmjs.com/package/clarity-visualize
+    language: TypeScript
+    official: true
+    version: 0.8.68
+    published: '2026-07-19'
+    license: MIT
+    repository: https://github.com/microsoft/clarity
+    note: Replays decoded Clarity payloads back into a DOM.
+  - name: com.microsoft.clarity:clarity
+    registry: maven
+    url: https://central.sonatype.com/artifact/com.microsoft.clarity/clarity
+    language: Kotlin/Java
+    official: true
+    version: 3.9.0
+    published: '2026-08-11'
+    note: >-
+      Android SDK. Version and date read from
+      repo1.maven.org/maven2/com/microsoft/clarity/clarity/maven-metadata.xml
+      (<release>3.9.0</release>, lastUpdated 20260811).
+  - name: com.microsoft.clarity:clarity-compose
+    registry: maven
+    url: https://central.sonatype.com/artifact/com.microsoft.clarity/clarity-compose
+    language: Kotlin
+    official: true
+    version: 3.9.0
+    published: '2026-08-11'
+    note: Jetpack Compose companion artifact, released in lockstep with the Android SDK.
+  - name: clarity_flutter
+    registry: pub.dev
+    url: https://pub.dev/packages/clarity_flutter
+    language: Dart
+    official: true
+    version: 1.9.0
+    published: '2026-04-26'
+    note: >-
+      Flutter SDK. pubspec homepage is https://clarity.microsoft.com/mobile-apps,
+      confirming first-party publication.
+  - name: microsoft/clarity-apps
+    registry: swift-package-manager
+    url: https://github.com/microsoft/clarity-apps
+    language: Swift
+    official: true
+    version: 3.5.4
+    published: '2026-06-17'
+    note: >-
+      iOS SDK, distributed as a Swift package (and a CocoaPods pod) from the
+      microsoft/clarity-apps repo rather than a package registry. Version and
+      date are the latest GitHub release tag. The same repo also backs the
+      React Native package.
+distributions:
+  - name: Clarity tracking tag
+    registry: cdn
+    url: https://www.clarity.ms/tag/<PROJECT_ID>
+    official: true
+    version: null
+    published: null
+    note: >-
+      The copy-and-paste install snippet loads the tracking script from
+      https://www.clarity.ms/tag/<PROJECT_ID>. The URL carries no version
+      segment, so the build floats to whatever Clarity is currently serving and
+      a consumer cannot pin or identify the version they are running. Probed
+      2026-08-13: HTTP 204 for an unknown project id (host is live, project
+      gating is server-side). Recorded as version: null because the
+      distribution is unpinned, not because it was unchecked.
+third_party_note: >-
+  Numerous community wrappers exist (react-microsoft-clarity, nuxt-clarity-analytics,
+  astro-microsoft-clarity-integration, Kebechet.Maui.MicrosoftClarity,
+  Soenneker.Blazor.Clarity, @mirage-cli/clarity-cli, @iflow-mcp mirrors of the
+  MCP server). None are published by Microsoft and none are listed above.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

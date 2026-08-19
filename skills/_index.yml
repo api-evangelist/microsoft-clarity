@@ -1,0 +1,45 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  openapi/microsoft-clarity-dataexport-api-openapi.yml plus the Microsoft Learn
+  Clarity documentation. Microsoft publishes no skills/ or AGENTS.md of its own
+  — these are API Evangelist packaged Agent Skills grounded in the real
+  operationId and the provider's published limits and error table.
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Packaged Agent Skills for Microsoft Clarity. Both are grounded in the single
+  published REST operation, getProjectLiveInsights, and both lead with the
+  constraint that actually decides whether an agent integration works here: ten
+  API calls per project per day, with no quota header to read.
+skill_count: 2
+skills:
+  - name: microsoft-clarity-export-daily-insights
+    file: skills/microsoft-clarity-export-daily-insights.md
+    api: Microsoft Clarity DataExport API
+    operations:
+      - getProjectLiveInsights
+    summary: >-
+      Pull dashboard metrics for the last 1-3 days sliced by up to three
+      dimensions, budget the 10/day quota, and parse the string-encoded counts
+      in the untyped information[] rows.
+  - name: microsoft-clarity-diagnose-friction
+    file: skills/microsoft-clarity-diagnose-friction.md
+    api: Microsoft Clarity DataExport API
+    operations:
+      - getProjectLiveInsights
+    summary: >-
+      Locate rage clicks, dead clicks, excessive scroll, quickback clicks and
+      script errors, normalise them against Traffic and bot sessions, then hand
+      off to the MCP server's list-session-recordings tool to watch a session.
+grounding:
+  operations_available: 1
+  operations_used: 1
+  invented_operations: 0
+  note: >-
+    There is exactly one public REST operation, so both skills bind to it. Every
+    limit, status code and parameter value quoted in the skills is taken from
+    the provider's own reference page.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

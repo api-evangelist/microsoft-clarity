@@ -1,0 +1,80 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  ("Possible response errors" table), cross-checked against the 4xx responses in
+  openapi/microsoft-clarity-dataexport-api-openapi.yml
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Error catalog for the Microsoft Clarity Data Export API. Clarity publishes a
+  four-row error table naming a status code, a reason phrase and the likely
+  cause. There is no error body schema: the docs show no JSON error envelope,
+  no machine-readable error code field and no application/problem+json media
+  type, so a client can only branch on the HTTP status.
+format: http-status
+rfc9457: false
+envelope:
+  documented: false
+  note: >-
+    Clarity documents no error response body. The only documented message string
+    is "Exceeded daily limit" on the 429. Treat the status code as the whole
+    contract.
+api: Microsoft Clarity DataExport API
+operations:
+  - getProjectLiveInsights
+problem_types:
+  - status: 400
+    response: BadRequest
+    title: Invalid request parameters
+    cause: >-
+      Invalid request parameters — for example a numOfDays outside 1-3, an
+      unrecognised dimension value, or more than three dimensions.
+    remediation: >-
+      Send numOfDays as 1, 2 or 3 and use only the documented dimension values
+      (Browser, Device, Country/Region, OS, Source, Medium, Campaign, Channel,
+      URL). Never send more than three dimensions.
+    retryable: false
+    source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  - status: 401
+    response: Unauthorized
+    title: Missing, invalid, or expired token
+    cause: The Authorization header is absent, malformed, or the JWT has expired.
+    remediation: >-
+      Send `Authorization: Bearer <token>`. Regenerate the token from Clarity
+      Settings -> Data Export -> Generate new API token if it has expired.
+    retryable: false
+    source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  - status: 403
+    response: Forbidden
+    title: Token not authorized for operation
+    cause: >-
+      The token is valid but not authorized for the operation or project — for
+      example a token whose issuing user was removed from the project.
+    remediation: >-
+      Have a project admin issue a new token. Clarity's published best practice
+      is to "promptly replace API tokens if a user with access is removed from
+      the project."
+    retryable: false
+    source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  - status: 429
+    response: TooManyRequests
+    title: Exceeded daily limit
+    cause: Surpassing the daily request limit of 10 requests per project per day.
+    remediation: >-
+      Wait for the next day's quota. No Retry-After header is documented and no
+      remaining-quota header exists, so the client must budget its own calls.
+      See rate-limits/microsoft-clarity-rate-limits.yml.
+    retryable: true
+    retry_after_header: false
+    source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+undocumented_observed:
+  - status: 500
+    note: >-
+      microsoft/clarity issue #1085 reports a 500 with an empty body against a
+      valid token on an active project. Recorded as a community-reported
+      observation, not a documented contract.
+    source: https://github.com/microsoft/clarity/issues/1085
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,106 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Microsoft Clarity Data Export API
+  version: 1.0.0
+extends: ../openapi/microsoft-clarity-dataexport-api-openapi.yml
+x-generated: '2026-08-13'
+x-method: generated
+x-source: >-
+  Enhancements derived from https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  and the artifacts in this repo (rate-limits, errors, conventions, lifecycle,
+  authentication, mcp). Applies over the refined OpenAPI without mutating it.
+actions:
+  - target: $.info
+    description: Add contact/documentation links and record the published quota in the description.
+    update:
+      x-documentation-url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+      x-support-email: clarityMS@microsoft.com
+      x-pricing: >-
+        Free. Clarity has one plan and it costs nothing; the constraints on this
+        API are quotas, not billing tiers.
+      x-api-evangelist-artifacts:
+        rate-limits: rate-limits/microsoft-clarity-rate-limits.yml
+        errors: errors/microsoft-clarity-problem-types.yml
+        conventions: conventions/microsoft-clarity-conventions.yml
+        lifecycle: lifecycle/microsoft-clarity-lifecycle.yml
+        authentication: authentication/microsoft-clarity-authentication.yml
+        data-model: data-model/microsoft-clarity-data-model.yml
+        mcp: mcp/microsoft-clarity-mcp.yml
+  - target: $.paths['/export-data/api/v1/project-live-insights'].get
+    description: >-
+      Record the published quota, response constraints and UTC timezone on the
+      operation itself so a generated client or agent sees them.
+    update:
+      x-rate-limit:
+        scope: project
+        limit: 10
+        window: day
+        status-on-exhaustion: 429
+        headers: none
+        note: >-
+          No RateLimit-*, X-RateLimit-* or Retry-After headers are returned.
+          Clients must budget their own consumption.
+      x-response-constraints:
+        max-rows: 1000
+        paginated: false
+        lookback-days: [1, 2, 3]
+        max-dimensions: 3
+        timezone: UTC
+      x-shared-quota-with:
+        - '@microsoft/clarity-mcp-server'
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+        subject: optional
+  - target: $.paths['/export-data/api/v1/project-live-insights'].get.responses['429']
+    description: Record the documented reason phrase and message for the quota response.
+    update:
+      x-response-name: TooManyRequests
+      x-message: Exceeded daily limit
+      x-retryable: true
+      x-retry-after-header: false
+  - target: $.paths['/export-data/api/v1/project-live-insights'].get.responses['401']
+    description: Add remediation guidance for an unauthorized response.
+    update:
+      x-remediation: >-
+        Send Authorization: Bearer <token>. Regenerate from Clarity Settings ->
+        Data Export -> Generate new API token if expired.
+  - target: $.paths['/export-data/api/v1/project-live-insights'].get.responses['403']
+    description: Add remediation guidance for a forbidden response.
+    update:
+      x-remediation: >-
+        Token is valid but not authorized for this project or operation. A
+        project admin must issue a replacement token.
+  - target: $.components.schemas.MetricEntry
+    description: >-
+      Document the observed row fields from the provider's published sample
+      response. The schema stays additionalProperties:true because the key set
+      varies with the metric and the dimensions requested.
+    update:
+      x-observed-row-fields:
+        - totalSessionCount
+        - totalBotSessionCount
+        - distantUserCount
+        - PagesPerSessionPercentage
+      x-dimension-keys:
+        - Browser
+        - Device
+        - Country/Region
+        - OS
+        - Source
+        - Medium
+        - Campaign
+        - Channel
+        - URL
+      x-numeric-encoding: >-
+        Counts are returned as JSON strings; ratios are returned as numbers.
+        Callers must coerce.
+  - target: $.components.securitySchemes.bearer_token
+    description: Record how the token is obtained and rotated.
+    update:
+      x-obtain: Clarity project -> Settings -> Data Export -> Generate new API token
+      x-issuer-role: project admin only
+      x-scope: project
+      x-rotation-guidance: >-
+        Replace tokens promptly when a user with access is removed from the
+        project.

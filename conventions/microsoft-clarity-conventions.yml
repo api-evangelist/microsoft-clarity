@@ -1,0 +1,126 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+  and https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api,
+  cross-checked against openapi/microsoft-clarity-dataexport-api-openapi.yml
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Cross-cutting runtime semantics for the Microsoft Clarity Data Export API.
+  This is a deliberately small API — one GET operation, one JSON array response,
+  no write path — so most of the usual conventions (idempotency keys,
+  pagination, expansion, request-id tracing) are simply absent rather than
+  implemented differently. Recorded here as explicit absences so an agent knows
+  not to look for them.
+authentication:
+  style: bearer-token
+  scheme: http bearer, bearerFormat JWT
+  header: 'Authorization: Bearer <Your_API_Token>'
+  scope: project
+  issuance: >-
+    Project admins only. Clarity project -> Settings -> Data Export -> Generate
+    new API token. Token names must be 4-32 characters, alphanumeric plus - _ .
+    and unique within the project.
+  rotation: >-
+    Documented best practice is to replace tokens promptly when a user with
+    access is removed from the project. No automatic expiry policy is published.
+  see: authentication/microsoft-clarity-authentication.yml
+  docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+idempotency:
+  supported: false
+  key_header: null
+  note: >-
+    No idempotency-key mechanism exists and none is needed: the API exposes a
+    single GET operation and no write path. The operation is idempotent by HTTP
+    method, not by an Idempotency-Key contract. No Idempotency pointer is
+    emitted in apis.yml because the provider ships no idempotency facility.
+pagination:
+  supported: false
+  style: none
+  max_rows: 1000
+  note: >-
+    Explicitly unsupported. Clarity states "The response is limited to 1,000
+    rows and can't be paginated." A caller that hits 1,000 rows cannot reach the
+    remainder — the documented workaround is to narrow the dimension breakdown.
+filtering:
+  style: query-parameters
+  parameters:
+    - name: numOfDays
+      required: true
+      values: [1, 2, 3]
+      description: Lookback window in days (last 24, 48 or 72 hours).
+    - name: dimension1
+      required: false
+      values: [Browser, Device, Country/Region, OS, Source, Medium, Campaign, Channel, URL]
+    - name: dimension2
+      required: false
+      values: [Browser, Device, Country/Region, OS, Source, Medium, Campaign, Channel, URL]
+    - name: dimension3
+      required: false
+      values: [Browser, Device, Country/Region, OS, Source, Medium, Campaign, Channel, URL]
+  note: At most three dimensions per request; a fourth is a 400.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: false
+  note: >-
+    Server-side metadata attachment is not part of the Data Export API. Arbitrary
+    key/value tagging happens client-side via window.clarity("set", key, value)
+    and surfaces as filters in the dashboard.
+request_tracing:
+  request_id_header: null
+  supported: false
+  note: No request-id or correlation header is documented on request or response.
+versioning:
+  style: uri-path
+  current: v1
+  path_segment: /export-data/api/v1/
+  header: null
+  policy_published: false
+  note: >-
+    The version lives in the path. Clarity publishes no API versioning or
+    deprecation policy for the Data Export API. The dated changelog Microsoft
+    maintains covers the mobile/web SDKs, not this HTTP API.
+  see: lifecycle/microsoft-clarity-lifecycle.yml
+error_envelope:
+  style: http-status-only
+  media_type: null
+  rfc9457: false
+  note: >-
+    Four documented statuses (400, 401, 403, 429) with reason phrases and no
+    documented response body.
+  see: errors/microsoft-clarity-problem-types.yml
+rate_limit_signaling:
+  headers: none
+  status_on_exhaustion: 429
+  retry_after: false
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After headers are documented. With a
+    10-request-per-project-per-day ceiling this is the sharpest edge on the API.
+  see: rate-limits/microsoft-clarity-rate-limits.yml
+data_conventions:
+  media_type: application/json
+  response_shape: >-
+    Top-level JSON ARRAY of metric objects, each { metricName, information: [...] }.
+    Not an envelope — there is no data/meta wrapper.
+  timezone: UTC
+  timezone_quote: The API returns results in UTC timezone.
+  numeric_encoding: >-
+    Counts are returned as JSON strings (for example "totalSessionCount": "9554")
+    while ratios are returned as numbers. Callers must coerce.
+  source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+client_api_conventions:
+  note: >-
+    Distinct from the HTTP API: Clarity's in-page client API is a single global
+    command function, window.clarity(<verb>, ...args), with verbs consent,
+    identify, set, event and upgrade, plus the HTML attributes
+    data-clarity-mask / data-clarity-unmask. The Clarity project ID doubles as
+    the client API key; no separate credential is issued.
+  docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
+  see: components/microsoft-clarity-components.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,120 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/third-party-integrations/clarity-mcp-server
+  and https://github.com/microsoft/clarity-mcp-server (README fetched
+  2026-08-13), cross-checked against registry.npmjs.org metadata for
+  @microsoft/clarity-mcp-server.
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+name: Microsoft Clarity MCP Server
+status: published
+official: true
+description: >-
+  First-party Model Context Protocol server for Microsoft Clarity, published by
+  Microsoft as @microsoft/clarity-mcp-server and documented on Microsoft Learn.
+  It wraps the Clarity Data Export API and the Clarity documentation corpus so
+  an MCP client can query project analytics, list session recordings and look
+  up Clarity documentation in natural language.
+deployment:
+  mode: local-stdio
+  install: npx @microsoft/clarity-mcp-server --clarity_api_token=your-token-here
+  package: https://www.npmjs.com/package/@microsoft/clarity-mcp-server
+  auth: api-key
+  verified: searched
+deployment_note: >-
+  There is NO hosted/remote Clarity MCP endpoint. Both Microsoft Learn and the
+  GitHub README document only a local stdio process — `npx
+  @microsoft/clarity-mcp-server` or a global `npm install -g` followed by the
+  `clarity-mcp-server` binary — configured into an MCP client's mcpServers
+  block with `"command": "npx"`. A human must install and run it on a machine
+  before any agent can reach Clarity through it. No endpoint URL is recorded
+  because none is published.
+repository: https://github.com/microsoft/clarity-mcp-server
+license: MIT
+package:
+  registry: npm
+  name: '@microsoft/clarity-mcp-server'
+  version: 2.0.1
+  published: '2025-10-28'
+requirements:
+  - Node.js v16 or later
+  - A Microsoft Clarity project and a Data Export API token
+authentication:
+  type: api-key
+  credential: Clarity Data Export API token (JWT)
+  transport:
+    - CLI flag --clarity_api_token=<token>
+    - '`token` parameter supplied when invoking a tool'
+  obtain: >-
+    Clarity project -> Settings -> Data Export -> Generate new API token. Only
+    project admins can manage tokens.
+  docs: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api#obtaining-access-tokens
+client_config_example: |
+  {
+    "mcpServers": {
+      "@microsoft/clarity-mcp-server": {
+        "command": "npx",
+        "args": [
+          "@microsoft/clarity-mcp-server",
+          "--clarity_api_token=your-api-token-here"
+        ]
+      }
+    }
+  }
+tools:
+  - name: query-analytics-dashboard
+    description: >-
+      Retrieves analytics data and metrics from your project's dashboard using a
+      simplified natural language search query.
+    examples:
+      - How many Clarity sessions did we get from Egypt in the past 3 days?
+      - What are the most used browsers in my Clarity project?
+      - Show me traffic metrics from my Clarity project for the last week
+  - name: list-session-recordings
+    description: >-
+      Lists your project's session recordings based on a specified filtering
+      criteria. The filters allow you to narrow down the recordings by various
+      fields such as URLs, device types, browser, OS, country, city, and more.
+    examples:
+      - List the most recent Clarity sessions from mobile devices
+      - Show the top 5 Clarity sessions with the highest number of user clicks
+      - Get Clarity recordings where users encountered JavaScript errors
+  - name: query-documentation-resources
+    description: >-
+      Retrieves snippets from Microsoft Clarity documentation to find answers to
+      user questions including step-by-step screenshots for setup guides,
+      features, usage, troubleshooting, and integration instructions.
+    examples:
+      - How to track custom events using Microsoft Clarity?
+      - How many labels can I add to a recording in Microsoft Clarity?
+schema_note: >-
+  Tool names and descriptions are transcribed verbatim from the provider's own
+  README and Learn page. Per-tool inputSchema was NOT captured: the server is
+  stdio-only, so tools/list cannot be reached over HTTP anonymously and the
+  provider does not publish the schemas. Authenticated local introspection
+  (npx the package with a token, then tools/list over stdio) would be required
+  to record them.
+limits:
+  note: >-
+    The server inherits the Data Export API quota. Microsoft Learn states on the
+    MCP page: "Each project permits up to 10 API requests per day, with a
+    maximum of 3 days' data and up to 3 dimensions per request."
+  see: rate-limits/microsoft-clarity-rate-limits.yml
+distribution_channels:
+  - name: npm
+    url: https://www.npmjs.com/package/@microsoft/clarity-mcp-server
+  - name: Visual Studio Code MCP install
+    note: The README ships a one-click VS Code install badge for the same npx command.
+  - name: Claude Desktop extension gallery
+    note: >-
+      README documents installing "Microsoft Clarity" from Claude Desktop's
+      File -> Settings -> Extensions gallery, then configuring the API token.
+planned:
+  - Increased daily request limits for the Clarity Data Export API
+  - Predictive engagement heatmaps from images or URLs
+  - Multi-project support
+  - Broader MCP client/agent compatibility
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

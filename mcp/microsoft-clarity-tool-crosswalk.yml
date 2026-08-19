@@ -1,0 +1,78 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  mcp/microsoft-clarity-mcp.yml (tool names/descriptions searched from
+  learn.microsoft.com and github.com/microsoft/clarity-mcp-server) bound against
+  openapi/microsoft-clarity-dataexport-api-openapi.yml
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Binds each tool exposed by the first-party Microsoft Clarity MCP server to the
+  REST operation that backs it. Clarity publishes exactly one REST operation
+  (getProjectLiveInsights) and three MCP tools, so most of the MCP surface has
+  no public REST equivalent — the recordings list and the documentation search
+  are served by internal Clarity endpoints that are not documented as a public
+  API.
+surfaces:
+  openapi:
+    file: openapi/microsoft-clarity-dataexport-api-openapi.yml
+    base: https://www.clarity.ms
+    gated: false
+    note: Public reference at learn.microsoft.com; calls require a project API token.
+  mcp:
+    transport: stdio
+    package: '@microsoft/clarity-mcp-server'
+    gated: true
+    note: >-
+      No hosted endpoint exists, so the live tool list could not be introspected
+      over HTTP. Tool names and descriptions are the provider's published ones.
+  graphql:
+    present: false
+crosswalk:
+  - tool: query-analytics-dashboard
+    category: analytics
+    rest:
+      - getProjectLiveInsights
+    binding: direct
+    confidence: high
+    note: >-
+      The Learn page and the npm description both state the server is "based on
+      data export API", and the tool's capability (metrics for the last 1-3 days
+      broken down by up to three dimensions) matches
+      GET /export-data/api/v1/project-live-insights one-for-one. The tool's real
+      input schema is that operation's numOfDays + dimension1..3 query
+      parameters, resolved from a natural-language query.
+  - tool: list-session-recordings
+    category: recordings
+    rest: []
+    binding: none
+    confidence: high
+    note: >-
+      No published REST operation returns session recordings. The Data Export
+      API returns aggregated metric rows only.
+  - tool: query-documentation-resources
+    category: documentation
+    rest: []
+    binding: none
+    confidence: high
+    note: Retrieval over the Clarity documentation corpus; not an API operation.
+mcp_only:
+  - tool: list-session-recordings
+    reason: >-
+      Session recording listing and filtering is exposed only through the MCP
+      server and the Clarity dashboard. Clarity publishes no REST endpoint for
+      recordings.
+  - tool: query-documentation-resources
+    reason: >-
+      Documentation retrieval tool. Backed by Microsoft Learn content, not by
+      the Clarity API.
+rest_only: []
+coverage:
+  mcp_tools: 3
+  rest_operations: 1
+  tools_bound_to_rest: 1
+  tools_without_rest: 2
+  rest_without_tool: 0
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

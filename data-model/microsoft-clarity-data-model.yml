@@ -1,0 +1,98 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/microsoft-clarity-dataexport-api-openapi.yml, enriched from the
+  documented dimension/metric vocabulary and sample response at
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Entity model for the Microsoft Clarity Data Export API. This is an analytics
+  export, not a resource API: there are no addressable entities, no ids and
+  therefore no id-reference relationships. The response is a flat array of
+  metric groups, each carrying an untyped bag of measures keyed by whichever
+  dimensions the caller requested. The real "model" is the metric x dimension
+  matrix, so it is recorded as vocabulary rather than as an ER graph.
+shape: metric-matrix
+identifiers:
+  present: false
+  note: >-
+    No entity ids, no id prefixes, no URIs. The only identifier in the system is
+    the Clarity project id, which is bound to the API token, not sent as a
+    parameter.
+entities:
+  - name: MetricEntry
+    source: components.schemas.MetricEntry
+    description: One metric group returned by getProjectLiveInsights.
+    fields:
+      - name: metricName
+        type: string
+        description: Name of the metric this group reports (for example "Traffic").
+        example: Traffic
+      - name: information
+        type: array<object>
+        description: >-
+          Untyped rows. Each row carries the measure fields for that metric plus
+          one key per requested dimension. additionalProperties is true because
+          the key set varies with the metric and the dimensions requested.
+    observed_row_fields:
+      note: Read from the provider's published sample response, not from a schema.
+      fields:
+        - totalSessionCount (string)
+        - totalBotSessionCount (string)
+        - distantUserCount (string)
+        - PagesPerSessionPercentage (number)
+        - '<dimension key>, e.g. OS (string)'
+relationships: []
+relationships_note: >-
+  No has_one / has_many / belongs_to relationships exist. MetricEntry is the
+  only schema in the specification and it contains no $ref links or id-reference
+  fields.
+vocabulary:
+  dimensions_note: Up to three may be combined per request; a fourth returns 400.
+  dimensions:
+    - Browser
+    - Device
+    - Country/Region
+    - OS
+    - Source
+    - Medium
+    - Campaign
+    - Channel
+    - URL
+  metrics_note: >-
+    Metrics are not selectable. Every call returns the full metric set, sliced
+    by the requested dimensions.
+  metrics:
+    - Scroll Depth
+    - Engagement Time
+    - Traffic
+    - Popular Pages
+    - Browser
+    - Device
+    - OS
+    - Country/Region
+    - Page Title
+    - Referrer URL
+    - Dead Click Count
+    - Excessive Scroll
+    - Rage Click Count
+    - Quickback Click
+    - Script Error Count
+    - Error Click Count
+constraints:
+  timezone: UTC
+  max_rows: 1000
+  paginated: false
+  lookback_days: [1, 2, 3]
+gaps:
+  - >-
+    Session recordings are a first-class Clarity concept but have no schema in
+    any published contract. They are reachable only through the dashboard and
+    the MCP server's list-session-recordings tool.
+  - >-
+    Smart Events, funnels, segments, labels and custom tags are all dashboard
+    concepts with no export schema.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

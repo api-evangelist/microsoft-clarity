@@ -1,0 +1,192 @@
+generated: '2026-08-13'
+method: searched
+source: https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-changelog
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Microsoft Clarity maintains a dated, per-platform SDK changelog on Microsoft
+  Learn covering Android, iOS, Flutter, React Native and Cordova/Ionic. Every
+  entry carries a semver version, a calendar date and a change class tag
+  ([Feature] / [Enhancement] / [BugFix] / [Breaking] / [Deprecation] /
+  [Compatibility]). There is NO changelog for the Data Export HTTP API — that
+  surface has published no dated change history at all.
+scheme: semver
+url: https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-changelog
+covers:
+  - Android SDK
+  - iOS SDK
+  - Flutter SDK
+  - React Native SDK
+  - Cordova/Ionic SDK
+does_not_cover:
+  - Microsoft Clarity DataExport API (no dated change history published)
+current_versions:
+  android: 3.9.0
+  android_source: repo1.maven.org maven-metadata.xml, release 3.9.0, lastUpdated 2026-08-11
+  ios: 3.5.4
+  flutter: 1.9.0
+  react_native: 4.7.0
+  cordova: 3.0.0
+  web_npm: 1.0.2
+  mcp_server: 2.0.1
+changelog_lag_note: >-
+  The published changelog trails the registries. As of 2026-08-13 the newest
+  documented Android entry is 3.8.3 (June 21, 2026) while Maven Central serves
+  3.9.0 (2026-08-11), and the newest documented React Native entry is 4.6.3
+  (June 23, 2026) while npm serves 4.7.0 (2026-08-12). Two shipped releases are
+  undocumented.
+entries:
+  - version: 3.8.3
+    platform: Android
+    date: '2026-06-21'
+    breaking: false
+    changes:
+      - class: Enhancement
+        text: Enhanced session upload reliability.
+  - version: 4.6.3
+    platform: React Native
+    date: '2026-06-23'
+    breaking: false
+    changes:
+      - class: Enhancement
+        text: Upgraded the native Android SDK to version 3.8.3.
+      - class: Enhancement
+        text: Upgraded the native iOS SDK to version 3.5.4.
+  - version: 3.5.4
+    platform: iOS
+    date: '2026-06-17'
+    breaking: false
+    changes:
+      - class: Enhancement
+        text: Enhanced session upload reliability.
+  - version: 3.5.3
+    platform: iOS
+    date: '2026-06-08'
+    breaking: false
+    changes:
+      - class: BugFix
+        text: Fixed a crash during PDF annotation in ComPDFKit-based views.
+  - version: 3.8.2
+    platform: Android
+    date: '2026-04-30'
+    breaking: false
+    changes:
+      - class: BugFix
+        text: >-
+          Fixed a release packaging issue that could cause Compose screens to
+          render incorrectly in minified builds.
+  - version: 3.5.2
+    platform: iOS
+    date: '2026-04-29'
+    breaking: false
+    changes:
+      - class: BugFix
+        text: Fixed a bug in the touch handling logic.
+  - version: 1.9.0
+    platform: Flutter
+    date: '2026-04-22'
+    breaking: false
+    changes:
+      - class: Feature
+        text: Added support for the Consent API to manage user consent for data collection.
+      - class: Enhancement
+        text: Restored compatibility with Android Gradle Plugin 9.
+  - version: 4.6.0
+    platform: React Native
+    date: '2026-04-21'
+    breaking: false
+    changes:
+      - class: Feature
+        text: (iOS) Added support for the Consent API to manage user consent for data collection.
+      - class: Enhancement
+        text: Upgraded the native iOS SDK to version 3.5.1.
+  - version: 3.5.1
+    platform: iOS
+    date: '2026-04-16'
+    breaking: false
+    changes:
+      - class: Feature
+        text: Added consent API to manage user consent for data collection.
+      - class: BugFix
+        text: >-
+          Fixed a potential arithmetic overflow when computing the Euclidean
+          distance between two Int32 coordinates.
+      - class: BugFix
+        text: >-
+          Fixed an issue where scroll and pan gestures in modal views stopped
+          working correctly after Clarity initialization.
+  - version: 1.8.0
+    platform: Flutter
+    date: '2026-03-31'
+    breaking: false
+    changes:
+      - class: Feature
+        text: Added custom font support for accurate text rendering in session playback.
+      - class: Feature
+        text: Added support for capturing accessibility labels for tapped elements.
+      - class: Enhancement
+        text: Improved image processing speed and efficiency.
+  - version: 3.4.4
+    platform: iOS
+    date: '2026-02-26'
+    breaking: false
+    changes:
+      - class: Compatibility
+        text: >-
+          Functionally identical to 3.4.3. Rebuilt on different build agents to
+          work around a toolchain issue that caused crashes in some integrated
+          applications.
+  - version: 3.8.1
+    platform: Android
+    date: '2026-01-26'
+    breaking: false
+    changes:
+      - class: BugFix
+        text: Fixed a Compose rendering issue caused by an edge case in Compose support.
+  - version: 1.7.0
+    platform: Flutter
+    date: '2026-01-05'
+    breaking: false
+    changes:
+      - class: Enhancement
+        text: Upgraded the Protobuf dependency to version 6.0.0.
+      - class: Enhancement
+        text: Improved detection of invalid project IDs before startup.
+      - class: BugFix
+        text: Fixed an issue where session endings were not always captured correctly.
+  - version: 3.8.0
+    platform: Android
+    date: '2025-12-16'
+    breaking: false
+    changes:
+      - class: Feature
+        text: Support Jetpack Compose 1.9 and 1.10.
+  - version: 3.7.0
+    platform: Android
+    date: '2025-12-03'
+    breaking: false
+    changes:
+      - class: Feature
+        text: Added consent API to manage user consent for data collection.
+recent_breaking_changes:
+  - version: 3.0.0
+    platform: Cordova/Ionic
+    date: '2025-05-22'
+    text: >-
+      npm package renamed to @microsoft/cordova-clarity; several ClarityConfig
+      options moved to the Clarity dashboard Settings page.
+  - version: 4.0.1
+    platform: React Native
+    date: '2024-11-24'
+    text: >-
+      npm package renamed to @microsoft/react-native-clarity; experimental iOS
+      flag removed; several ClarityConfig options moved to the dashboard.
+  - version: 3.0.0
+    platform: Android and iOS
+    date: '2024-11-24'
+    text: >-
+      ClarityConfig options moved to the dashboard;
+      setOnNewSessionStartedCallback renamed to setOnSessionStartedCallback.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

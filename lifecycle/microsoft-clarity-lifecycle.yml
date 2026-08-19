@@ -1,0 +1,89 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-changelog,
+  https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api,
+  https://learn.microsoft.com/en-us/clarity/faq
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+description: >-
+  Lifecycle posture for Microsoft Clarity. The split matters: Clarity runs a
+  disciplined, dated, semver'd release train for its SDKs — with explicit
+  [Breaking] and [Deprecation] markers going back to 2023 — but publishes no
+  versioning policy, no deprecation policy, no Sunset/Deprecation headers, no
+  SLA and no status page for the Data Export HTTP API. The API is a single v1
+  path that has not visibly changed.
+versioning:
+  style: uri-path
+  current_version: v1
+  path: /export-data/api/v1/project-live-insights
+  policy_published: false
+  policy_url: null
+  note: >-
+    No published statement on how versions are introduced or retired for the
+    HTTP API.
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No RFC 8594 Sunset/Deprecation headers and no written deprecation policy for
+    the API. Deprecations ARE announced for SDKs, inside the dated changelog —
+    for example iOS 3.0.10 "[Deprecation] Deprecated clarityFontNameHint()
+    SwiftUI modifier", and the standing notice that iOS 1.0.0-1.0.2, 2.0.0-2.2.3
+    and 3.0.0-3.0.4 "rely on a deprecated CDN and are expected to fail to
+    download by early April 2025." Because this is release-note practice rather
+    than a published policy, no Deprecation pointer is emitted in apis.yml.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in openapi/microsoft-clarity-dataexport-api-openapi.yml carries
+  deprecated: true.
+breaking_change_practice:
+  documented: true
+  mechanism: >-
+    SDK changelog entries are tagged [Breaking], [Feature], [Enhancement],
+    [BugFix], [Compatibility] or [Deprecation], and breaking changes land on
+    major versions (Android 3.0.0, iOS 3.0.0, React Native 4.0.1, Cordova 3.0.0
+    all carried [Breaking] entries on 2024-11-24 / 2025-05-22).
+  url: https://learn.microsoft.com/en-us/clarity/mobile-sdk/sdk-changelog
+  see: changelog/microsoft-clarity-changelog.yml
+sla:
+  published: false
+  note: >-
+    Clarity is a free service with no paid tier, and Microsoft publishes no
+    uptime commitment or support SLA for it. Support is an email address,
+    clarityMS@microsoft.com, plus Microsoft Q&A.
+status_page:
+  published: false
+  url: null
+  note: >-
+    Clarity operates NO first-party status page. Searches surface only
+    third-party monitors (StatusGator, SaaSHub) which infer status externally.
+    Microsoft's status.cloud.microsoft covers Microsoft 365 / Azure services and
+    does not list Clarity. No StatusPage pointer is emitted in apis.yml.
+data_retention:
+  recordings_days: 30
+  favorites_and_sample_months: 9
+  labels_months: 9
+  quote: >-
+    Clarity retains recordings for 30 days from the time of recording. However,
+    Favorite recordings and randomly selected sample of recordings are retained
+    for up to 9 months.
+  source: https://learn.microsoft.com/en-us/clarity/faq
+support:
+  email: clarityMS@microsoft.com
+  community: https://learn.microsoft.com/en-us/answers/tags/clarity
+  issues: https://github.com/microsoft/clarity/issues
+roadmap:
+  published: true
+  url: https://learn.microsoft.com/en-us/clarity/third-party-integrations/clarity-mcp-server
+  note: >-
+    The only forward-looking commitment API consumers get is the "Planned
+    enhancements" list on the MCP server page: increased daily API limits,
+    predictive heatmaps, deeper AI integration, multi-project support, broader
+    agent compatibility. Undated.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
