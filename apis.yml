@@ -69,6 +69,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
   baseURL: https://www.clarity.ms/
   tags:
+  - Data Export
+  tags_raw:
   - DataExport
   properties:
   - type: OpenAPI
