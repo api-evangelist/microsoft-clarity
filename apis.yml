@@ -13,6 +13,18 @@ description: >-
   server that wraps the same endpoint for AI agents. Clarity is free forever
   with no paid tier; the binding constraint on any integration is a quota of ten
   API requests per project per day.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
