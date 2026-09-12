@@ -1,5 +1,5 @@
 aid: microsoft-clarity
-url: https://raw.githubusercontent.com/api-evangelist/microsoft-clarity/refs/heads/main/apis.yml
+url: https://clarity.microsoft.com/
 name: Microsoft Clarity
 description: >-
   Microsoft Clarity is a free behavioral analytics service from Microsoft that
