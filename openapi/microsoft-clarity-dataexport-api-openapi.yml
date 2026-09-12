@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Clarity Data Export DataExport API
+  title: Microsoft Clarity Data Export API
   description: 'The Microsoft Clarity Data Export API lets project admins download
 
     dashboard insights programmatically. Returns JSON for the last 1-3

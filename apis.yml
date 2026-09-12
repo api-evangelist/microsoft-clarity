@@ -96,6 +96,8 @@ apis:
   - type: APIReference
     url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 common:
+  - type: Website
+    url: https://www.microsoft.com/
   - type: AgenticAccess
     url: agentic-access/microsoft-clarity-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -176,3 +178,5 @@ x-enrichment:
   pass: local-v1
 x-coverage:
   state: covered
+x-parent: microsoft
+x-relationship: product
