@@ -71,24 +71,16 @@ apis:
     url: https://learn.microsoft.com/en-us/clarity/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
-- aid: microsoft-clarity:microsoft-clarity-dataexport-api
-  name: Microsoft Clarity DataExport API
-  description: >-
-    Project live insights data export. One JWT-authenticated GET returns Clarity
-    dashboard metrics as JSON for the last one to three days, sliced by up to
-    three of nine dimensions. Capped at ten requests per project per day and
-    1,000 unpaginated rows per response.
-  humanURL: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+- aid: microsoft-clarity:microsoft-clarity-data-export-api
+  name: Microsoft Clarity Data Export API
+  description: Project live insights data export
+  humanURL: https://learn.microsoft.com/en-us/clarity/
   baseURL: https://www.clarity.ms/
   tags:
   - Data Export
-  tags_raw:
-  - DataExport
   properties:
   - type: OpenAPI
-    url: openapi/microsoft-clarity-dataexport-api-openapi.yml
-  - type: Overlay
-    url: overlays/microsoft-clarity-dataexport-api-overlay.yaml
+    url: openapi/microsoft-clarity-data-export-api-openapi.yml
   - type: ErrorCatalog
     url: errors/microsoft-clarity-problem-types.yml
   - type: DataModel
@@ -96,6 +88,8 @@ apis:
   - type: APIReference
     url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 common:
+  - type: Overlay
+    url: overlays/microsoft-clarity-dataexport-api-overlay.yaml
   - type: Website
     url: https://www.microsoft.com/
   - type: AgenticAccess
