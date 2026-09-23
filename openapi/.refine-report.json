@@ -1,17 +1,23 @@
 {
   "provider": "microsoft-clarity",
   "sources": [
-    "microsoft-clarity-dataexport-api-openapi.yml"
+    "_original/microsoft-clarity-openapi.yml"
   ],
   "outputs": [
     "microsoft-clarity-dataexport-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "microsoft-clarity-dataexport-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "microsoft-clarity-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: microsoft-clarity-data-export-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 2 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "microsoft-clarity-data-export-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

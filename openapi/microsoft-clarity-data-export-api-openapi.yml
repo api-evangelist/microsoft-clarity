@@ -13,9 +13,7 @@ info:
 
     Clarity project settings. Max 10 requests per project per day;
 
-    responses limited to 1000 rows and not paginated.
-
-    '
+    responses limited to 1000 rows and not paginated.'
   version: v1
   contact:
     name: Kin Lane
@@ -29,13 +27,13 @@ servers:
 security:
 - bearer_token: []
 tags:
-- name: DataExport
+- name: Data Export
   description: Project live insights data export
 paths:
   /export-data/api/v1/project-live-insights:
     get:
       tags:
-      - DataExport
+      - Data Export
       summary: Fetch project live insights
       description: 'Fetches dashboard data for a Clarity project over the last 1, 2,
 
@@ -49,9 +47,7 @@ paths:
 
         Count, Quickback Click, Script Error Count, and Error Click
 
-        Count.
-
-        '
+        Count.'
       operationId: getProjectLiveInsights
       parameters:
       - name: numOfDays
