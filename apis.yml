@@ -88,6 +88,8 @@ apis:
   - type: APIReference
     url: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
 common:
+  - type: FinOps
+    url: finops/microsoft-clarity-finops.yml
   - type: CapabilityMap
     url: capabilities/microsoft-clarity-capability-edges.yml
     name: Microsoft Clarity Business Capability Map
