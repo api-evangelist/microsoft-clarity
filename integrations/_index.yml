@@ -40,3 +40,83 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: microsoft-clarity-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.microsoft.clarity/clarity
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.microsoft.clarity:clarity
+      version: 3.10.0
+      released: '2026-09-07'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.microsoft.clarity/clarity
+      repo_leg: domain:microsoft.com
+      publisher_leg: groupId:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: com.microsoft.clarity:clarity-compose
+      version: 3.10.0
+      released: '2026-09-07'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.microsoft.clarity/clarity-compose
+      repo_leg: domain:microsoft.com
+      publisher_leg: groupId:microsoft.com
+      matched_by: domain+name-among-holders
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-clarity-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@microsoft/cordova-clarity
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@microsoft/cordova-clarity'
+      version: 3.0.0
+      released: '2026-07-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@microsoft/cordova-clarity
+      repo_leg: domain:microsoft.com
+      publisher_leg: email:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: '@microsoft/react-native-clarity'
+      version: 4.9.2
+      released: '2026-10-01'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@microsoft/react-native-clarity
+      repo_leg: domain:microsoft.com
+      publisher_leg: email:microsoft.com
+      matched_by: domain+name-among-holders
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
