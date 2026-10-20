@@ -1,5 +1,8 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
 method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/microsoft-clarity/integrations
 checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
@@ -10,8 +13,23 @@ checked:
 - https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
 - shopify/integrations/shopify-integration-edges.yml
-source:
-- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/microsoft-clarity
+- https://monid.ai/tools/microsoft-clarity
+- https://n8n.io/integrations/microsoft-clarity/
+- https://zapier.com/apps/microsoft-clarity/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: microsoft-clarity
+  url: https://zapier.com/apps/microsoft-clarity/integrations
+  external_url: https://clarity.microsoft.com/
+  partner_tier: SILVER
+  triggers:
+  - key: new_data
+    label: Change in Dashboard Metrics
+  actions: []
+  searches: []
 edges:
 - partner_name: Shopify (own)
   partner: shopify
@@ -134,3 +152,425 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: Google Ads
+  partner: google-ads
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/google-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://ads.google.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Looker
+  partner: google-looker
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/looker
+  direction: third-party
+  category: Analytics
+  partner_url: https://cloud.google.com/looker/
+- partner_name: Jira Software Cloud
+  partner: jira
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/jira-software-cloud
+  direction: third-party
+  category: Project Management
+  partner_url: https://www.atlassian.com/software/jira
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Databox
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/databox
+  direction: third-party
+  category: Business Intelligence
+  partner_url: https://databox.com/pricing
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: systeme.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/systemeio
+  direction: third-party
+  category: Marketing
+  partner_url: https://systeme.io/
+- partner_name: Zoho Analytics
+  partner: zoho-analytics
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/zoho-analytics
+  direction: third-party
+  category: Analytics
+  partner_url: https://go.zoho.com/EI5
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Google Analytics 4
+  partner: google-analytics
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/google-analytics-4
+  direction: third-party
+  category: Analytics
+  partner_url: https://marketingplatform.google.com/about/analytics/
+- partner_name: Kajabi
+  partner: kajabi
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/kajabi
+  direction: third-party
+  category: eCommerce
+  partner_url: http://kajabi.com/
+- partner_name: Salesforce
+  partner: salesforce
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/salesforce
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.salesforce.com/
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: RD Station
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/rd-station
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.rdstation.com.br/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: Stan
+  partner: stan
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/stan-creator
+  direction: third-party
+  category: App Builder
+  partner_url: https://stan.store/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: ChatGPT (OpenAI)
+  partner: openai
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/chatgpt
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://chat.openai.com/chat
+- partner_name: Google BigQuery
+  partner: google-bigquery
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/google-bigquery
+  direction: third-party
+  category: Databases
+  partner_url: https://cloud.google.com/bigquery/
+- partner_name: Miro
+  partner: miro
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/miro
+  direction: third-party
+  category: Team Collaboration
+  partner_url: https://miro.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Telegram
+  partner: telegram
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/telegram
+  direction: third-party
+  category: Phone & SMS
+  partner_url: https://telegram.org/
+- partner_name: Copper
+  partner: copper
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/copper
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://copper.com/?utm_source=zapier&utm_medium=zapier
+- partner_name: Facebook Pages
+  partner: facebook-pages
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/facebook-pages
+  direction: third-party
+  category: Facebook
+  partner_url: https://facebook.com/
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/klaviyo
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.klaviyo.com/
+- partner_name: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/microsoft-clarity/integrations/facebook-lead-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/ads/lead-ads
+templates:
+- title: Send Gmail emails for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/gmail/integrations/microsoft-clarity/1564470/send-gmail-emails-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - gmail
+- title: Send channel messages in Slack for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/microsoft-clarity/integrations/slack/1564467/send-channel-messages-in-slack-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - slack
+- title: Update Google Sheets rows for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/google-sheets/integrations/microsoft-clarity/1564471/update-google-sheets-rows-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - google-sheets
+- title: Track changes in Microsoft Clarity dashboard metrics by copying them to Google Sheets worksheets
+  url: https://zapier.com/apps/google-sheets/integrations/microsoft-clarity/1628761/track-changes-in-microsoft-clarity-dashboard-metrics-by-copying-them-to-google-sheets-worksheets
+  apps:
+  - microsoft-clarity
+  - google-sheets
+- title: Track updates in Microsoft Clarity metrics by creating rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/microsoft-clarity/1617739/track-updates-in-microsoft-clarity-metrics-by-creating-rows-in-google-sheets
+  apps:
+  - microsoft-clarity
+  - google-sheets
+- title: Create new GitHub issues when dashboard metrics change in Microsoft Clarity
+  url: https://zapier.com/apps/github/integrations/microsoft-clarity/1673197/create-new-github-issues-when-dashboard-metrics-change-in-microsoft-clarity
+  apps:
+  - microsoft-clarity
+  - github
+- title: Update Microsoft Excel rows for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/excel/integrations/microsoft-clarity/1564472/update-microsoft-excel-rows-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - excel
+- title: Send Microsoft Outlook emails for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/microsoft-clarity/integrations/microsoft-outlook/1564468/send-microsoft-outlook-emails-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - microsoft-outlook
+- title: Create Jira Software Cloud issues for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/jira-software-cloud/integrations/microsoft-clarity/1564473/create-jira-software-cloud-issues-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - jira-software-cloud
+- title: Send Discord channel messages for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/discord/integrations/microsoft-clarity/1564474/send-discord-channel-messages-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - discord
+- title: Create card widgets in Miro from new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/microsoft-clarity/integrations/miro/1564481/create-card-widgets-in-miro-from-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - miro
+- title: Send channel messages on Microsoft Teams for new changes in Microsoft Clarity dashboard metrics
+  url: https://zapier.com/apps/microsoft-clarity/integrations/microsoft-teams/1564509/send-channel-messages-on-microsoft-teams-for-new-changes-in-microsoft-clarity-dashboard-metrics
+  apps:
+  - microsoft-clarity
+  - microsoft-teams
+template_total: 35
