@@ -137,18 +137,6 @@
   relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
-- slug: microsoft-clarity-shopify-own
-  label: Shopify (own)
-  partner: shopify
-  partner_name: Shopify (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://apps.shopify.com/microsoft-clarity
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: microsoft-clarity-zapier
   label: Zapier
   partner: zapier
@@ -549,4 +537,29 @@
   source: edge
   relationship: ipaas-bridge
   status: pending-generation
+  arazzo: null
+- slug: microsoft-clarity-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/microsoft-clarity
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-clarity-bubble-own
+  label: Bubble (own)
+  partner: bubble
+  partner_name: Bubble (own)
+  category: Action
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://bubble.io/plugin/microsoft-clarity-1661717622628x490300288223674400
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null

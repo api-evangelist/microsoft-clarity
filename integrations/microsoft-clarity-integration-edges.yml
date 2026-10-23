@@ -17,6 +17,7 @@ checked:
 - https://monid.ai/tools/microsoft-clarity
 - https://n8n.io/integrations/microsoft-clarity/
 - https://zapier.com/apps/microsoft-clarity/integrations
+- bubble/integrations/bubble-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -31,24 +32,6 @@ marketplace_apps:
   actions: []
   searches: []
 edges:
-- partner_name: Shopify (own)
-  partner: shopify
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://apps.shopify.com/microsoft-clarity
-  mirror_of: shopify/integrations/shopify-integration-edges.yml
-  apps:
-  - 'Microsoft Clarity: AI Insights'
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  publisher_verified:
-  - Built for Shopify
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -512,6 +495,42 @@ edges:
   direction: third-party
   category: Ads & Conversion
   partner_url: https://www.facebook.com/business/ads/lead-ads
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/microsoft-clarity
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - 'Microsoft Clarity: AI Insights'
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Built for Shopify
+- partner_name: Bubble (own)
+  partner: bubble
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://bubble.io/plugin/microsoft-clarity-1661717622628x490300288223674400
+  mirror_of: bubble/integrations/bubble-integration-edges.yml
+  apps:
+  - Microsoft Clarity
+  - Microsoft Clarity-Mobile Apps
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Action
 templates:
 - title: Send Gmail emails for new changes in Microsoft Clarity dashboard metrics
   url: https://zapier.com/apps/gmail/integrations/microsoft-clarity/1564470/send-gmail-emails-for-new-changes-in-microsoft-clarity-dashboard-metrics
