@@ -1,0 +1,159 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Microsoft Clarity
+providerId: microsoft-clarity
+created: '2026-05-04'
+modified: '2026-08-13'
+generated: '2026-08-13'
+method: searched
+source: https://learn.microsoft.com/en-us/clarity/faq
+docs:
+  - https://clarity.microsoft.com/pricing
+  - https://learn.microsoft.com/en-us/clarity/faq
+tags:
+  - Analytics
+  - Heatmaps
+  - Session Recording
+  - Web Analytics
+description: >-
+  Microsoft Clarity has exactly one commercial tier and it is free. The Clarity
+  FAQ answers "What is the pricing model for Clarity?" with "Clarity is a free
+  service forever. You never encounter traffic limits or are compelled to
+  upgrade to a paid version," and elsewhere "Clarity is 100% free - forever.
+  You're never asked to upgrade to a paid version. No credit card is required to
+  sign up." There is no paid tier, no enterprise tier and no metered overage, so
+  this file records one plan rather than the usual free/pro/enterprise ladder.
+  The constraints that DO exist are product and API quotas, not billing tiers,
+  and they are captured as entries below and in
+  rate-limits/microsoft-clarity-rate-limits.yml.
+plan_count: 1
+supersedes_note: >-
+  This file replaces a 2026-05-04 bulk-sweep scaffold that invented Free /
+  Professional / Enterprise tiers with placeholder quotas and "TBD" prices. None
+  of those tiers exist. Method upgraded generated -> searched.
+plans:
+  - id: microsoft-clarity-free
+    name: Free
+    type: free
+    price: '0.00'
+    currency: USD
+    billingPeriod: none
+    description: >-
+      The only Clarity plan. Unlimited projects, unlimited sites, unlimited team
+      members, no traffic limits and no credit card. Microsoft states Clarity
+      processes more than 1 petabyte of data from over 100 million users per
+      month with no traffic limits on those sites.
+    entries:
+      - label: Price
+        name: price
+        type: subscription
+        price: '0.00'
+        currency: USD
+        timeFrame: none
+        source: https://learn.microsoft.com/en-us/clarity/faq
+      - label: Data Export API requests
+        name: data_export_api_requests
+        type: quota
+        metric: requests
+        limit: 10
+        timeFrame: day
+        scope: project
+        description: Maximum of 10 API requests are allowed per project per day.
+        source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+      - label: Data Export API response rows
+        name: data_export_rows
+        type: quota
+        metric: rows
+        limit: 1000
+        timeFrame: request
+        description: The response is limited to 1,000 rows and can't be paginated.
+        source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data-export-api
+      - label: Session recordings kept
+        name: session_recordings_per_day
+        type: quota
+        metric: recordings
+        limit: 100000
+        timeFrame: day
+        scope: project
+        description: >-
+          Clarity keeps up to 100,000 session recordings per project per day.
+          Above that it samples, and the client-side `upgrade` API can be used
+          to prioritise which sessions survive sampling.
+        source: https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-api
+      - label: Heatmap page views
+        name: heatmap_page_views
+        type: quota
+        metric: page_views
+        limit: 100000
+        timeFrame: heatmap
+        description: Heat maps are limited to up to 100,000 page views per heat map.
+        source: https://learn.microsoft.com/en-us/clarity/faq
+      - label: Recording retention
+        name: recording_retention
+        type: retention
+        metric: days
+        limit: 30
+        description: >-
+          Clarity retains recordings for 30 days from the time of recording.
+          Favorite recordings and a randomly selected sample are retained for up
+          to 9 months. Labels are retained up to 9 months.
+        source: https://learn.microsoft.com/en-us/clarity/faq
+      - label: Tags per page
+        name: tags_per_page
+        type: quota
+        metric: tags
+        limit: 128
+        description: >-
+          No limit on tags per site, but a single page can have no more than 128
+          tags; any more are ignored.
+        source: https://learn.microsoft.com/en-us/clarity/faq
+    elements:
+      - name: Session Recordings
+      - name: Heatmaps
+      - name: Smart Events and Funnels
+      - name: Filters, Segments and Custom Tags
+      - name: Copilot / Chat and Heatmap Insights
+      - name: Bot and AI traffic analytics
+      - name: Data Export API
+      - name: Clarity MCP Server
+      - name: Web, Android, iOS, React Native, Flutter and Cordova SDKs
+      - name: Unlimited projects, sites and team members
+notes:
+  - >-
+    Onboarding is self-serve and free; the FAQ states "Onboarding to Clarity is
+    free and easy."
+  - >-
+    Clarity is funded indirectly: Microsoft states it processes anonymous
+    behavioural data to improve its own products, which is why the product
+    carries no price.
+  - >-
+    Bot Activity server/CDN log integration can incur third-party cost, billed
+    by the customer's own CDN or cloud provider, never by Clarity.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - data
+  - period
+  - request
+  plans:
+  - name: Free
+    access: free
+    model: subscription
+    model_how: derived
+    units:
+    - data
+    - other
+    - period
+    - request
+    periods:
+    - day
+    - none
+    - other
+    - per-use
